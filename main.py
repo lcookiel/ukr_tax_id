@@ -8,11 +8,9 @@ def birthcode(birth_date):
     delta = birth_date - date(1899, 12, 31)
     return delta.days
 
-# 3726903919
+
 def control_digit(taxid):
     control_sum = int(taxid[0])*(-1) + int(taxid[1])*5 + int(taxid[2])*7 + int(taxid[3])*9 + int(taxid[4])*4 + int(taxid[5])*6 + int(taxid[6])*10 + int(taxid[7])*5 + int(taxid[8])*7
-    # control_digit = control_sum - (11 * math.floor(control_sum/11))
-    # print(control_sum)
     control_digit = (control_sum%11)%10
     return str(control_digit)
 
@@ -46,4 +44,3 @@ if __name__ == '__main__':
     possible_taxid = possible_taxid(birthcode, sex)
     for id in possible_taxid:
         print(id)
-    # print(control_digit("372690391"))
